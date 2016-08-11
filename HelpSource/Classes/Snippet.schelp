@@ -1,0 +1,44 @@
+TITLE:: Snippet
+summary:: A Snippet tool for the SuperCollider IDE
+categories:: Live Coding
+related:: /
+
+DESCRIPTION::
+A Snippet tool for quick regeneration of code.
+
+
+CLASSMETHODS::
+
+METHOD:: list
+get all keys of the snippets.
+
+
+METHOD:: global
+get all keys and corresponding codes.
+
+
+INSTANCEMETHODS::
+
+
+EXAMPLES::
+
+code::
+
+Snippet(); // run this to add shortcut(crtl + l) to the Document's global key down action;
+
+////////////
+
+ndef // press crtl+l will return the code below;
+
+Ndef(\foo)[0] = {};
+
+
+pdef // will return this;
+
+Pdef(\foo,Pbind(
+	\instrument,\default,
+	\degree,Pseq([],inf),
+	\dur,Pseq([],inf)
+));
+
+::
