@@ -9,12 +9,19 @@ A Snippet tool for quick regeneration of code.
 
 CLASSMETHODS::
 
-METHOD:: list
-get all keys of the snippets.
+METHOD:: enable
+enable snippet
 
 
-METHOD:: global
-get all keys and corresponding codes.
+METHOD:: disable
+disable snippet
+
+METHOD:: keys
+get all snippets
+
+METHOD:: keysCodes
+get all snippets and their codes
+
 
 
 INSTANCEMETHODS::
@@ -24,7 +31,7 @@ EXAMPLES::
 
 code::
 
-Snippet(); // run this to add shortcut(crtl + l) to the Document's global key down action;
+Snippet.enable; // run this to add shortcut(crtl + l) to the Document's global key down action;
 
 ////////////
 
