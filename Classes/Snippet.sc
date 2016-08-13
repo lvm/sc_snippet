@@ -2,13 +2,13 @@ Snippet {
 
 	classvar snippetDict, func;
 	classvar exists = false;
+
+
 	*enable{
 
 		if(exists == false){
 
-
 			snippetDict = IdentityDictionary(128);
-
 			snippetDict.addAll([
 
 				\egen -> "EnvGen.kr(Env.adsr,\gate.kr,doneAction:2);",
@@ -34,9 +34,9 @@ Snippet {
 				'//' -> "//////////////////////////////////////////////////////////////////////"
 			]);
 
-			//     snout
 
-			//
+
+
 			func = {|doc, char, modifiers, unicode, keycode|
 
 				if(unicode == 12 && modifiers.isCtrl, {
@@ -49,16 +49,12 @@ Snippet {
 					(-8..8).do{|j| codeFragment = codeFragment ++ doc.getChar(j+currentPos)};
 					codeFragment = codeFragment.toLower;
 
-					~c = codeFragment;
-
-					//   snout
-
 					allSnippets.do{|key|
 						var loc;
 						loc = codeFragment.find(key.asString);
 
 						if(loc.notNil){
-							key.postln;
+
 							if(thisSnippet.isNil){
 								thisSnippet = key;
 								snippetPos = loc - 8;
@@ -66,7 +62,7 @@ Snippet {
 								var isNewLine, isLonger;
 								isNewLine = codeFragment[snippetPos+9].ascii == 10;
 								isLonger = key.asString.size >= thisSnippet.asString.size;
-								if(isNewLine.postln || isLonger.postln){
+								if(isNewLine || isLonger){
 									thisSnippet = key;
 									snippetPos = loc-8
 								}
