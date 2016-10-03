@@ -1,7 +1,7 @@
 Snippet {
 
 	classvar snippetDict, func, changeDefaultsFunc;
-	classvar <>exists = false;
+	classvar exists = false;
 	classvar tempDocSize = 0;
 
 	*enable{
