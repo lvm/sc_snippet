@@ -6,7 +6,7 @@ A SuperCollider snippet tool.
 - create a new instance of Snippet to set the global key down function;  
 - use Snippet.keys or Snippet.keysCodes to get see all snippets;  
 - type the key of the snippet;  
-- press ctrl+l 
+- press ctrl+l;     
 - press ctrl+] to jump to default values (marked with -- -- in source code)
 
 
@@ -23,10 +23,10 @@ Ndef('foo',{ })
 2.
 pdf  //press ctrl+l will get
 
-Pdef('foo',Pbind(
-'instrument','default',
-'degree',Pseq([0,1,2,3],inf),
-'dur',Pseq([1],inf)
+Pdef('foo',Pbind(  
+'instrument','default',  
+'degree',Pseq([0,1,2,3],inf),  
+'dur',Pseq([1],inf)  
 ));
 
 
