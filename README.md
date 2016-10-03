@@ -20,10 +20,7 @@ Ndef('foo',{ })
 
 //the symbol 'foo' is  automatically highlighted, press ctrl+] to jump to the next default value (which is the space within the curly brackets)
 
-////////////////////////////////////////
-
-
-2. 
+2.
 pdf  //press ctrl+l will get
 
 Pdef('foo',Pbind(
