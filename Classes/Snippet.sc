@@ -11,23 +11,90 @@ Snippet {
 			var snips;
 
 			snippetDict = IdentityDictionary(128);
-			snippetDict.addAll([\egen ->
-				"EnvGen.kr(--Env.adsr--,\gate.kr,doneAction:--2--);\n",
+			snippetDict.addAll([
 
+				//SynthDefs
+
+				\syndf ->
+				"SynthDef('--foo--',{|out=0,freq=440,pan=0,amp=1,gate=1| \n\t-- --\n\tOut.ar(--out--, -- --)\n}).add;",
+
+				\syn ->
+				"--x-- = Synth('--foo--')",
+
+				//Patterns
 				\pdf ->
-				"Pdef('--foo--',Pbind(\n\t'instrument','--default--',\n\t'degree',--Pseq([0,1,2,3],inf)--,\n\t'dur',--Pseq([1],inf)--\n));",
+				"Pdef('--foo--',Pbind(\n\t'instrument','--default--',\n\t'scale',Scale.--major--,\n\t'degree',--Pseq([0,1,2,3],inf)--,\n\t'amp',--Pseq([0.1],inf)--,\n\t'dur',--Pseq([1],inf)--\n));",
 
-				\px ->
-				"p = ProxySpace(--s.boot--).push;",
+				\pdfp ->
+				"Pdef('--foo--').play",
 
+				\pdfq ->
+				"Pdef('--foo--').quant_(--4--)",
+
+				\pdfs ->
+				"Pdef('--foo--').stop",
+
+				\pbdf ->
+				"Pbindef('--foo--','-- --', -- --)",
+
+				\pseq ->
+				"Pseq([--0, 1, 2, 3--],inf)",
+
+				\pwhite ->
+				"Pwhite(--0, 1--,inf)",
+
+				\prand ->
+				"Prand([--0,1--],inf)",
+
+				//Ndef
 				\ndf ->
 				"Ndef('--foo--',{-- --})",
+
+				\ndfp ->
+				"Ndef('--foo--').play",
+
+				\ndfq ->
+				"Ndef('--foo--').quant_(--4--)",
+
+				\ndfs ->
+				"Ndef('--foo--').stop",
 
 				\ndf0->
 				"Ndef('--foo--')[0] = {-- --};",
 
 				\ndff ->
 				"Ndef('--foo--')[--1--] = '--filter--' -> {|in| -- --};",
+
+
+				//ProxySpace
+				\px ->
+				"p = ProxySpace(--s.boot--).push;",
+
+
+				//control structures
+				\if ->
+				"if(-- --, {\n-- --\n});",
+
+				\ife ->
+				"if(-- --, {\n-- --\n},{\n-- --\n});",
+
+				\while ->
+				"while({-- --}, {\n-- --\n});",
+
+				\for ->
+				"for(-- --, -- --, {\n-- --\n});",
+
+				\case ->
+				"case\n{-- --}{-- --}\n{-- --}{-- --};",
+
+				\switch ->
+				"switch(-- --,\n-- --,{-- --},\n-- --,{-- --})",
+
+
+				//other
+
+				\egen ->
+				"EnvGen.kr(--Env.adsr--, gate, doneAction:--2--);\n",
 
 				\out ->
 				"Out.ar(--out--, -- --);",
@@ -38,32 +105,13 @@ Snippet {
 				\tdf ->
 				"Tdef('--foo--',{-- --})",
 
-				\pseq ->
-				"Pseq([--0, 1, 2, 3--],inf)",
-
-				\pwhite ->
-				"Pwhite([--0, 1--],inf)",
-
-				\sndf ->
-				"SynthDef('--foo--',{|out=0,freq=440,pan=0,amp=1,gate=1| \n\t-- --\n\tOut.ar(--out--, -- --)\n}).add;",
-
-				\sout ->
-				"s.options.outDevice = \"\";",
-
-				\sin ->
-				"s.options.inDevice = \"\";",
-
-				\snout ->
-				"s.options.numOutputBusChannels = ;",
-
-				\snin ->
-				"s.options.numInputBusChannels = ;",
-
 				\tempo ->
 				"(\n--t-- = TempoClock.default;\n--t--.tempo = --1--\n)",
 
 				'//' ->
-				"//////////////////////////////////////////////////////////////////////"]);
+				"//////////////////////////////////////////////////////////////////////"
+
+			]);
 
 
 
@@ -245,6 +293,7 @@ Snippet {
 
 
 	*keys {
+		snippetDict.keys.do{|j| j.postln};
 		^snippetDict.keys;
 	}
 
