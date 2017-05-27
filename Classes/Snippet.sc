@@ -25,6 +25,12 @@ Snippet {
 				\pdf ->
 				"Pdef('--foo--',Pbind(\n\t'instrument','--default--',\n\t'scale',Scale.--major--,\n\t'degree',--Pseq([0,1,2,3],inf)--,\n\t'amp',--Pseq([0.1],inf)--,\n\t'dur',--Pseq([1],inf)--\n));",
 
+				\pdirt ->
+				"Pdef(\\foo,\n\tPbind(\n\t\t\\type, \\dirt,\n\t\t\\s, \\default,\n\t\t\\gain, 0.9,\n\t\t\\dur, 1,\n\t\t\\orbit, 0,\n\t)\n).play(quant:4);",
+
+				\pstop ->
+				"Pdef.all.do{|p| p.stop; p.clear; }",
+
 				\pdfp ->
 				"Pdef('--foo--').play",
 
